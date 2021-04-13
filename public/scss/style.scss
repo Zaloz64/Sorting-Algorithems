@@ -1,0 +1,292 @@
+@import '_variables';
+
+body {
+    margin: 0;
+    position: relative;
+    .rubrik {
+        h1 {
+            @include center();
+            top: 4rem;
+            z-index: 1;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.151);
+            padding: 3rem 0;
+            letter-spacing: 4rem;
+            width: 100%;
+            font-weight: 600;
+        }
+        p {
+            display: none;
+        }
+    }
+
+    section {
+        margin: 5rem 5rem 1rem 5rem;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 45% auto auto;
+        grid-template-areas: 
+            "ac ."
+            "ac  info"
+            "ac info";
+        #startInfo {
+            grid-area: info;
+            p {
+                // grid-area: txt;
+                @include text();
+            }
+    
+            a {
+                // grid-area: btn;
+                @include nullify();
+                @include btn();
+                @include center();
+                max-width: 40%;
+                
+                &:hover {
+                    color:$color2;
+                }
+            }
+        }
+
+
+        #animationContainer {
+            grid-area: ac;
+            background-color: #aa7eac;
+            margin-right: 5rem; 
+            height: 80vh;
+        }
+    }
+
+    footer {
+        @include center();
+        font-family: 'Lato', sans-serif;
+        font-weight: 700;
+    }
+}
+
+// responsivness
+
+@media screen and (max-width: 950px) {
+    body {
+        .rubrik {
+            h1 {
+                @include center();
+                letter-spacing: 3rem;
+                font-weight: 600;
+                top: 10rem;
+            }
+        }
+    
+        section {
+            margin: 0;
+            display: flex;
+            #startInfo {
+                height: 90vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                margin-left: 300px;
+                p {
+                    @include text();
+                    max-width: 90%;
+                }
+        
+                a {
+                    
+                    &:hover {
+                        color:$color2;
+                    }
+                }
+            }
+    
+    
+            #animationContainer {
+                display: flex;
+                flex-direction: column;
+                align-self: flex-start;
+                position: absolute;
+                z-index: -1;
+
+                background-color: #aa7eac;
+                height: 100vh;
+                width: 255px;
+            }
+        }
+    
+        footer {
+            color: #D4D4D4;
+        }
+    }
+}
+
+@media screen and (max-width: 790px) {
+    body {
+        .rubrik {
+            h1 {
+                letter-spacing: 2rem;
+            }
+        }
+    
+        section {
+            #startInfo {
+                height: 90vh;
+                margin-left: 200px;
+                p {
+                    @include text();
+                    font-size: 1.2rem;
+                }
+            }
+    
+    
+            #animationContainer {
+                width: 180px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 620px) {
+    body {
+        .rubrik {
+            h1 {
+                letter-spacing: 1.4rem;
+            }
+        }
+    
+        section {
+            #startInfo {
+                height: 90vh;
+                margin-left: 200px;
+                p {
+                    @include text();
+                    font-size: 1rem;
+                }
+            }
+    
+    
+            #animationContainer {
+                width: 180px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        .rubrik {
+            h1 {
+                @include center();
+                letter-spacing: 0.5rem;
+                font-weight: 600;
+                padding: 3rem 0 6rem;
+                top: 10rem;
+            }
+            p { 
+                @include center();
+                @include text();
+                display: block;
+                position: absolute;
+                top: 16rem;
+                padding-left: 3rem;
+                font-size: 1rem;
+                max-width: 80%;
+            }
+        }
+    
+        section {
+            margin: 0;
+            display: flex;
+            #startInfo {
+                width: 100vw;
+                max-height: 70vh;
+                padding: 0;
+                margin-left: 0;
+
+                p {
+                    // grid-area: txt;
+                    @include text();
+                    font-size: 1rem;
+                    display: none;
+                }
+        
+                a {
+                    // grid-area: btn;
+                    @include nullify();
+                    @include btn();
+                    @include center();
+                    padding: 1rem 5rem;
+                    top: 30rem;
+                    margin-left: 3rem;
+                    margin-top: 20rem;
+                    
+                    &:hover {
+                        color:$color2;
+                    }
+                }
+            }
+    
+    
+            #animationContainer {
+                display: flex;
+                flex-direction: column;
+                align-self: flex-start;
+                position: absolute;
+                z-index: -1;
+
+                background-color: #aa7eac;
+                height: 100vh;
+                width: 105px;
+            }
+        }
+    
+        footer {
+            color: #D4D4D4;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        .rubrik {
+            h1 {
+                font-weight: 600;
+            }
+            p { 
+                padding-left: 2rem;
+                max-width: 90%;
+            }
+        }
+    
+        section {
+            #startInfo {
+                a {
+                    margin-left: 2rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        .rubrik {
+            h1 {
+                font-weight: 600;
+                font-size: 1.7rem;
+            }
+            p { 
+                padding-left: 1rem;
+                max-width: 95%;
+            }
+        }
+    
+        section {
+            #startInfo {
+                a {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}

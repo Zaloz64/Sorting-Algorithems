@@ -1,0 +1,35 @@
+$color1: #D5BBB1;
+$color2: #9CC4B2;
+$color3: #C98CA7;
+$color4: #E76D83;
+
+
+
+@mixin nullify {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+@mixin btn {
+    background-color: #1E1E1E;
+    padding: 1rem 0.5rem;
+    color: white;
+    font-size: 2rem;
+    border-style: none;
+}
+
+@mixin text {
+    font-size: 1.3rem;
+    word-spacing: 4px;
+    font-weight: 500;
+    font-family: 'Lato', sans-serif;
+    // letter-spacing: 2px;
+}
