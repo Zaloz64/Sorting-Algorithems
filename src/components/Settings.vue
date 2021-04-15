@@ -1,19 +1,18 @@
 <template>
-  <section v-show="settingdisplay">
-    <h2>Settings</h2>
+  <section >
+    <button @click="yes()">X</button>
+    <h2>SETTINGS</h2>
     <div class="slidecontainer">
-      <p>Staplar</p>
+      <p>Antal Staplar: {{$parent.amountStaplar}}</p>
       <input
+        v-model="$parent.amountStaplar"
         type="range"
-        min="1"
-        max="100"
-        value="50"
+        min="2"
+        max="200"
         class="slider"
         id="myRange"
       />
-    </div>
-    <div class="slidecontainer">
-      <p>Hastighet</p>
+      <p>Hastighet: Slow</p>
       <input
         type="range"
         min="1"
@@ -30,9 +29,28 @@
 <script>
 export default {
   name: "Settings",
+  data() {
+    return {
+      speed: "",
+    }
+  },
+  methods: {
+    yes() {
+      this.$parent.settingdisplay = false;
+    }
+  },
+  computed: {
+    
+
+  }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+
+  .slidecontainer {
+    color: white;
+  }
+
 </style>

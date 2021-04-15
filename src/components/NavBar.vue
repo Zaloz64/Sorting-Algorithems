@@ -7,7 +7,7 @@
       <div class="dropdown-content">
         <a
           href="#"
-          @click="selectedAlgotithem(pathfind)"
+          @click="selectedAlgotithem(sortAlgorithem)"
           v-for="(sortAlgorithem, index) in basic"
           v-bind:key="index"
           >{{ sortAlgorithem }}</a
@@ -19,7 +19,7 @@
       <div class="dropdown-content">
         <a
           href="#"
-          @click="selectedAlgotithem(sortAlg)"
+          @click="selectedAlgotithem(sortAlgorithem)"
           v-for="(sortAlgorithem, index) in uniqe"
           v-bind:key="index"
           >{{ sortAlgorithem }}</a
@@ -48,33 +48,32 @@ export default {
       ],
       uniqe: ["Radix Sort", "Shell Sort", "Cocktail Shaker", "Bitonic Sort"],
       selected: "",
-      settingdisplay: false,
     };
   },
 
   methods: {
     selectedAlgotithem(name) {
-      this.isShowing = false;
+      this.$parent.isShowing = false;
       this.selected = name;
-      this.$refs.myChild.createArray();
+      this.$parent.$refs.myChild.createArray();
     },
     showAlgotithem() {
       if (this.selected == "Selection Sort") {
-        this.$refs.myChild.SelectionSort();
+        this.$parent.$refs.myChild.SelectionSort();
       } else if (this.selected == "Bubble Sort") {
-        this.$refs.myChild.BubbleSort();
+        this.$parent.$refs.myChild.BubbleSort();
       } else if (this.selected == "Insertion Sort") {
-        this.$refs.myChild.InsertionSort();
+        this.$parent.$refs.myChild.InsertionSort();
       } else if (this.selected == "Merge Sort") {
-        this.$refs.myChild.MergeSort();
+        this.$parent.$refs.myChild.MergeSort();
       } else if (this.selected == "Quick Sort") {
-        this.$refs.myChild.QuickSort();
+        this.$parent.$refs.myChild.QuickSort();
       } else if (this.selected == "Bogo Sort") {
-        this.$refs.myChild.BogoSort();
+        this.$parent.$refs.myChild.BogoSort();
       } else if (this.selected == "Heap Sort") {
-        this.$refs.myChild.HeapSort();
+        this.$parent.$refs.myChild.HeapSort();
       } else if (this.selected == "Cocktail Shaker") {
-        this.$refs.myChild.CocktailShaker();
+        this.$parent.$refs.myChild.CocktailShaker();
       }
     },
   },

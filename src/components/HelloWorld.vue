@@ -24,12 +24,16 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      amount: 3,
+      amount: 10,
       animationspeed: 0.5,
       numbers: [],
     };
   },
-
+  watch: {
+    theAmount() {
+      this.amount = this.$parent.amountStaplar
+    }
+  },
   created() {
     this.createArray();
   },
