@@ -3,7 +3,7 @@
     <h1>{{ selected }}</h1>
     <router-link to="/">Start</router-link>
     <div class="dropdown">
-      <button class="dropbtn">Basic sortingalgorithems</button>
+      <router-link to="/visul" class="dropbtn">Sortingalgorithems</router-link>
       <div class="dropdown-content">
         <a
           href="#"
@@ -14,7 +14,7 @@
         >
       </div>
     </div>
-    <div class="dropdown">
+    <!-- <div class="dropdown">
       <button class="dropbtn">Uniqe</button>
       <div class="dropdown-content">
         <a
@@ -25,7 +25,7 @@
           >{{ sortAlgorithem }}</a
         >
       </div>
-    </div>
+    </div> -->
     <router-link to="/More" id="info">More information</router-link>
   </nav>
   <router-view />
@@ -84,5 +84,11 @@ export default {
 <style scoped>
 #info {
   margin: 0;
+}
+
+.dropbtn {
+  display: flex;
+  justify-self: center;
+  align-self: center;
 }
 </style>
