@@ -12,12 +12,12 @@
         class="slider"
         id="myRange"
       />
-      <p>Hastighet: Slow</p>
+      <p>Hastighet: {{$parent.sortingSpeed}}</p>
       <input
+        v-model="$parent.sortingSpeed"
         type="range"
-        min="1"
-        max="100"
-        value="50"
+        min="00.1"
+        max="2000"
         class="slider"
         id="myRange"
       />

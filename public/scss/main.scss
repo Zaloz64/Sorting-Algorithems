@@ -122,6 +122,10 @@ body {
                         border-color: white;
                         color: white;
                         border-width: 1px;
+                        &:hover {
+                            color: $color2;
+                            border-color: $color2;
+                        }
                     }
                     h2 {
                         color: white;
@@ -162,10 +166,91 @@ body {
                 &:hover {
                     background-color: $color2;
                 }
-                &:focus {
-                    border: none !important;
-                    outline: none !important;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1000px){
+    body {
+        nav {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        main {
+            max-height: 70vh;
+        }
+    }
+}
+
+
+@media screen and (max-width: 750px){
+    body {
+        nav {
+            h1 {
+                font-size: 1.5rem;
+            }
+            a {
+                font-size: 1rem;
+                padding-right: 0.9rem;
+            }
+            .dropdown {
+                .dropbtn {
+                    font-size: 1rem;
+                    padding-right: 0.9rem;
+
                 }
+            }
+        }
+
+        main {
+            max-height: 70vh;
+            .controlls {
+                left:0;
+                right:0;
+                display: flex;
+                justify-content: center;
+                
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 610px){
+    body {
+        nav {
+            h1 {
+                display: none;
+            }
+            a {
+                font-size: 1rem;
+                padding-right: 0.9rem;
+            }
+            .dropdown {
+                .dropbtn {
+                    font-size: 1rem;
+                    padding-right: 0.9rem;
+
+                }
+            }
+        }
+
+        main {
+
+            #container {
+                padding: 0.5rem;
+                text-align: center;
+            }
+
+            .controlls {
+                left:0;
+                right:0;
+                display: flex;
+                justify-content: center;
+                
             }
         }
     }

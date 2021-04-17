@@ -69,6 +69,7 @@ export default {
   methods: {
     staplatUpdate() {
       this.amount = this.$parent.amountStaplar;
+      this.animationspeed = this.$parent.sortingSpeed;
     },
 
     createArray() {

@@ -1,4 +1,4 @@
-body main {
+body #more {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,29 +10,55 @@ body main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
 }
 
-body main table {
+body #more h3 {
+  text-align: center;
+}
+
+body #more table {
   width: 50vw;
   border-spacing: 1px;
   background-color: #222;
 }
 
-body main table #topChart {
+body #more table #topChart {
   background-color: #222;
   color: white;
   padding: 2px;
 }
 
-body main table #topChart th {
+body #more table #topChart th {
   padding: 1rem 1rem;
 }
 
-body main table tr {
+body #more table tr {
   background-color: white;
 }
 
-body main table tr th {
+body #more table tr th {
   padding: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 375) {
+  #more table {
+    width: 80%;
+  }
+  #more table #topChart {
+    background-color: #222;
+    color: white;
+    padding: 2px;
+  }
+  #more table #topChart th {
+    padding: 0.2rem 0.2rem;
+  }
+  #more table tr th {
+    padding: 0;
+  }
 }
 /*# sourceMappingURL=More.css.map */

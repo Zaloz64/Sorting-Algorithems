@@ -1,8 +1,9 @@
+
 <template>
-  <link rel="stylesheet" href="scss/More.css">
+
   <Nav-bar />
 
-  <main>
+  <div id="more">
     <h3>Time Complexities of the Showed Sorting Algorithms</h3>
     <table>
       <tr id="topChart">
@@ -18,7 +19,7 @@
         <th>{{ val["Worst"] }}</th>
       </tr>
     </table>
-  </main>
+  </div>
 </template>
 
 <script>

@@ -192,6 +192,11 @@ body main #container #moreInfo section button {
   border-width: 1px;
 }
 
+body main #container #moreInfo section button:hover {
+  color: #9CC4B2;
+  border-color: #9CC4B2;
+}
+
 body main #container #moreInfo section h2 {
   color: white;
   letter-spacing: 0.5rem;
@@ -249,8 +254,67 @@ body main .controlls button:hover {
   background-color: #9CC4B2;
 }
 
-body main .controlls button:focus {
-  border: none !important;
-  outline: none !important;
+@media screen and (max-width: 1000px) {
+  body nav h1 {
+    font-size: 2rem;
+  }
+  body main {
+    max-height: 70vh;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  body nav h1 {
+    font-size: 1.5rem;
+  }
+  body nav a {
+    font-size: 1rem;
+    padding-right: 0.9rem;
+  }
+  body nav .dropdown .dropbtn {
+    font-size: 1rem;
+    padding-right: 0.9rem;
+  }
+  body main {
+    max-height: 70vh;
+  }
+  body main .controlls {
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  body nav h1 {
+    display: none;
+  }
+  body nav a {
+    font-size: 1rem;
+    padding-right: 0.9rem;
+  }
+  body nav .dropdown .dropbtn {
+    font-size: 1rem;
+    padding-right: 0.9rem;
+  }
+  body main #container {
+    padding: 0.5rem;
+    text-align: center;
+  }
+  body main .controlls {
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 /*# sourceMappingURL=main.css.map */

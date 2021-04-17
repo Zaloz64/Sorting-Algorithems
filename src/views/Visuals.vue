@@ -23,7 +23,7 @@
           @click="this.$refs.NavBar.showAlgotithem()"
         />
       </button>
-      <button @click="closeSettings(); codeDisplay = !codeDisplay">&lt;&gt;</button>
+      <button ref="code" @click="closeSettings(); codeDisplay = !codeDisplay">&lt;&gt;</button>
       <button @click="closeSettings(); settingdisplay = !settingdisplay">
         <img src="img/setting-line.png" alt="Setting" />
       </button>

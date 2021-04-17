@@ -2,17 +2,7 @@
   <section>
     <button @click="exit()">X</button>
     <h2>CODE</h2>
-    <code>
-        i ← 1 <br>
-        while i length(A) <br>
-        j ← i <br>
-            while j > 0 and A[j-1] > A[j]<br>
-                swap A[j] and A[j-1]<br>
-                j ← j - 1<br>
-            end while<br>
-            i ← i + 1<br>
-        end while<br>
-    </code>
+    <h3>You have not chosen an sorting algorithem!</h3>
   </section>
 </template>
 
@@ -20,9 +10,13 @@
 export default {
   name: "Code",
   methods: {
-      exit() {
-        this.$parent.codeDisplay = false;
-      }
+    exit() {
+      this.$parent.codeDisplay = false;
+    },
+    chosen(name) {
+      console.log(name)
+    }
+
   }
 };
 </script>
