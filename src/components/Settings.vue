@@ -22,6 +22,7 @@
         id="myRange"
       />
     </div>
+
   </section>
 </template>
 
@@ -32,6 +33,7 @@ export default {
   data() {
     return {
       speed: "",
+
     }
   },
   methods: {

@@ -23,11 +23,11 @@
           @click="this.$refs.NavBar.showAlgotithem()"
         />
       </button>
-      <button @click="codeDisplay = !codeDisplay">&lt;&gt;</button>
-      <button @click="settingdisplay = !settingdisplay">
+      <button @click="closeSettings(); codeDisplay = !codeDisplay">&lt;&gt;</button>
+      <button @click="closeSettings(); settingdisplay = !settingdisplay">
         <img src="img/setting-line.png" alt="Setting" />
       </button>
-      <button @click="infoDisplay = !infoDisplay">?</button>
+      <button @click="closeSettings();  infoDisplay = !infoDisplay">?</button>
     </div>
   </main>
 </template>
@@ -57,11 +57,13 @@ export default {
       sortingSpeed: 1,
     };
   },
+  methods: {
+    closeSettings() {
+      this.settingdisplay = false;
+      this.codeDisplay = false;
+      this.infoDisplay = false;
+    }
+  }
 };
 </script>
-
-<style>
-
-  
-</style>
 

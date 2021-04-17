@@ -3,7 +3,7 @@
     <h1>{{ selected }}</h1>
     <router-link to="/">Start</router-link>
     <div class="dropdown">
-      <router-link to="/visul" class="dropbtn">Sortingalgorithems</router-link>
+      <router-link to="/visul" class="dropbtn">Sorting Algorithms</router-link>
       <div class="dropdown-content">
         <a
           href="#"
@@ -14,19 +14,7 @@
         >
       </div>
     </div>
-    <!-- <div class="dropdown">
-      <button class="dropbtn">Uniqe</button>
-      <div class="dropdown-content">
-        <a
-          href="#"
-          @click="selectedAlgotithem(sortAlgorithem)"
-          v-for="(sortAlgorithem, index) in uniqe"
-          v-bind:key="index"
-          >{{ sortAlgorithem }}</a
-        >
-      </div>
-    </div> -->
-    <router-link to="/More" id="info">More information</router-link>
+    <router-link to="/More" id="info">Complexities</router-link>
   </nav>
   <router-view />
 </template>

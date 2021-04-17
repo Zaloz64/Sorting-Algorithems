@@ -1,10 +1,11 @@
 <template>
+  <link rel="stylesheet" href="scss/More.css">
   <Nav-bar />
 
   <main>
-    <h3>Time Complexities of Sorting Algorithms:</h3>
+    <h3>Time Complexities of the Showed Sorting Algorithms</h3>
     <table>
-      <tr>
+      <tr id="topChart">
         <th>Algorithem</th>
         <th>Best</th>
         <th>Avrage</th>
@@ -86,8 +87,10 @@ export default {
 </script>
 
 <style scoped>
-  
+  h3 {
+    text-transform: uppercase; 
+    letter-spacing: 0.2rem;
+    margin-bottom: 2rem;
+  }
 </style>
-
-
 

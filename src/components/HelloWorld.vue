@@ -8,19 +8,47 @@
         v-for="(val, index) in numbers"
         v-bind:key="index"
         :style="{ height: val + 'px' }"
-      >
-        <!-- {{ val }} -->
-      </div>
+      ></div>
     </transition-group>
   </div>
-  <button @click="createArray">Generate new array</button>
+  <button id="newArray"
+    @click="
+      createArray();
+      staplatUpdate();
+    "
+  >
+    Generate new array
+  </button>
+
+  <!-- Refrencing to what algorithem to use. -->
+  <Selection-sort ref="SelectionSort" />
+  <Bubble-sort ref="BubbleSort" />
+  <Insertion-sort ref="InsertionSort" />
+  <Merge-sort ref="MergeSort" />
+  <Quick-sort ref="QuickSort" />
+  <Bogo-sort ref="BogoSort"/>
 </template>
 
 
 <script>
 import Algorithems from "../utils";
+import SelectionSort from "./SortingAlgorithems/SelectionSort.vue";
+import BubbleSort from "./SortingAlgorithems/BubbleSort.vue";
+import InsertionSort from "./SortingAlgorithems/InsertionSort.vue";
+import MergeSort from "./SortingAlgorithems/MergeSort.vue";
+import QuickSort from "./SortingAlgorithems/QuickSort.vue";
+import BogoSort from "./SortingAlgorithems/BogoSort.vue";
+
 
 export default {
+  components: {
+    SelectionSort,
+    BubbleSort,
+    InsertionSort,
+    MergeSort,
+    QuickSort,
+    BogoSort,
+  },
   name: "HelloWorld",
   data() {
     return {
@@ -29,16 +57,20 @@ export default {
       numbers: [],
     };
   },
-  watch: {
-    theAmount() {
-      this.amount = this.$parent.amountStaplar
-    }
-  },
   created() {
     this.createArray();
   },
+  watch: {
+    amount: function () {
+      this.createArray();
+    },
+  },
 
   methods: {
+    staplatUpdate() {
+      this.amount = this.$parent.amountStaplar;
+    },
+
     createArray() {
       var temp = Algorithems.createArray(this.amount);
       this.numbers = temp;
@@ -49,148 +81,36 @@ export default {
       }
     },
 
-    async BogoSort() {
-      // const arrayBars = document.getElementsByClassName("stapel");
-      const array = JSON.parse(JSON.stringify(this.numbers));
-      array.sort(function (a, b) {
-        return a > b ? 1 : -1;
-      });
-      while (this.numbers != array) {
-        // console.log(this.numbers && array)
-        await Algorithems.timeout(this.animationspeed);
-        Algorithems.shuffle(this.numbers);
-      }
+    // Starting animations for the diffrent algorithems
+
+    BogoSort() {
+      this.$refs.BogoSort.startAnimation(this.numbers, this.animationspeed);
     },
 
-    async SelectionSort() {
-      var numbers = this.numbers;
-      var arrLength = numbers.length;
-      for (let a = 0; a < arrLength - 1; a++) {
-        const arrayBars = document.getElementsByClassName("stapel");
-        arrayBars[a].style.backgroundColor = "red";
-        await Algorithems.timeout(this.animationspeed);
-        arrayBars[a].style.backgroundColor = "green";
-        var zMin = a;
-        for (let z = a + 1; z < arrLength; z++) {
-          arrayBars[z].style.backgroundColor = "red";
-          await Algorithems.timeout(this.animationspeed);
-          if (numbers[z] < numbers[zMin]) {
-            arrayBars[zMin].style.backgroundColor = "gray";
-            zMin = z;
-            arrayBars[zMin].style.backgroundColor = "green";
-          } else {
-            arrayBars[z].style.backgroundColor = "gray";
-          }
-        }
-        if (a != zMin) {
-          var b = numbers[zMin];
-          numbers[zMin] = numbers[a];
-          numbers[a] = b;
-        }
-
-        arrayBars[a].style.backgroundColor = "orange";
-      }
-      const arrayBars = document.getElementsByClassName("stapel");
-      arrayBars[arrayBars.length - 1].style.backgroundColor = "orange";
+    SelectionSort() {
+      this.$refs.SelectionSort.startAnimation(
+        this.numbers,
+        this.animationspeed
+      );
     },
 
-    async BubbleSort() {
-      var numbers = this.numbers;
-
-      for (let i = 0; i < numbers.length - 1; i++) {
-        const arrayBars = document.getElementsByClassName("stapel");
-        for (let j = 0; j < numbers.length - i - 1; j++) {
-          arrayBars[j].style.backgroundColor = "green";
-          arrayBars[j + 1].style.backgroundColor = "green";
-          await Algorithems.timeout(this.animationspeed);
-          if (numbers[j] > numbers[j + 1]) {
-            var b = numbers[j];
-            numbers[j] = numbers[j + 1];
-            numbers[j + 1] = b;
-            arrayBars[j].style.backgroundColor = "red";
-            arrayBars[j + 1].style.backgroundColor = "red";
-            await Algorithems.timeout(this.animationspeed);
-          }
-
-          arrayBars[j].style.backgroundColor = "gray";
-          arrayBars[j + 1].style.backgroundColor = "gray";
-          await Algorithems.timeout(this.animationspeed);
-        }
-        arrayBars[numbers.length - 1 - i].style.backgroundColor = "orange";
-      }
-      const arrayBars = document.getElementsByClassName("stapel");
-      arrayBars[0].style.backgroundColor = "orange";
+    BubbleSort() {
+      this.$refs.BubbleSort.startAnimation(this.numbers, this.animationspeed);
     },
 
-    async InsertionSort() {
-      var numbers = this.numbers;
-      for (let i = 0; i < numbers.length; i++) {
-        const arrayBars = document.getElementsByClassName("stapel");
-
-        var key = numbers[i];
-        arrayBars[i].style.backgroundColor = "red";
-        await Algorithems.timeout(this.animationspeed);
-        arrayBars[i].style.backgroundColor = "gray";
-
-        var j = i - 1;
-
-        while (j >= 0 && numbers[j] > key) {
-          arrayBars[j].style.backgroundColor = "orange";
-          await Algorithems.timeout(this.animationspeed);
-          arrayBars[j].style.backgroundColor = "gray";
-          numbers[j + 1] = numbers[j];
-          j = j - 1;
-        }
-
-        numbers[j + 1] = key;
-        arrayBars[j + 1].style.backgroundColor = "green";
-        await Algorithems.timeout(this.animationspeed);
-        arrayBars[j + 1].style.backgroundColor = "gray";
-      }
+    InsertionSort() {
+      this.$refs.InsertionSort.startAnimation(
+        this.numbers,
+        this.animationspeed
+      );
     },
-    async MergeSort() {
-      const array = JSON.parse(JSON.stringify(this.numbers));
-      const animations = Algorithems.getMergeSortAnimations(array);
-      for (let i = 0; i < animations.length; i++) {
-        const arrayBars = document.getElementsByClassName("stapel");
-        const isColorChange = i % 3 !== 2;
-        if (isColorChange) {
-          const [barOneIdx, barTwoIdx] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
-          const barTwoStyle = arrayBars[barTwoIdx].style;
-          const color = i % 3 === 0 ? "green" : "gray";
-          await Algorithems.timeout(this.animationspeed);
-          barOneStyle.backgroundColor = color;
-          barTwoStyle.backgroundColor = color;
-        } else {
-          await Algorithems.timeout(this.animationspeed);
-          const [barOneIdx, newHeight] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
-          barOneStyle.height = `${newHeight}px`;
-        }
-      }
+
+    MergeSort() {
+      this.$refs.MergeSort.startAnimation(this.numbers, this.animationspeed);
     },
-    async QuickSort() {
-      const array = JSON.parse(JSON.stringify(this.numbers));
-      const animations = Algorithems.getQuickSortAnimation(array);
-      for (let i = 0; i < animations.length; i++) {
-        const arrayBars = document.getElementsByClassName("stapel");
-        if (i % 3 == 0) {
-          const [barOneIdx, barTwoIdx] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
-          const barTwoStyle = arrayBars[barTwoIdx].style;
-          barOneStyle.backgroundColor = "green";
-          barTwoStyle.backgroundColor = "green";
-          await Algorithems.timeout(this.animationspeed);
-          barOneStyle.backgroundColor = "gray";
-          barTwoStyle.backgroundColor = "gray";
-        } else {
-          await Algorithems.timeout(this.animationspeed);
-          const [barOneIdx, newHeight] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
-          barOneStyle.height = `${newHeight}px`;
-        }
-      }
+
+    QuickSort() {
+      this.$refs.QuickSort.startAnimation(this.numbers, this.animationspeed);
     },
 
     async HeapSort() {
@@ -209,8 +129,8 @@ export default {
     async RadixSort() {},
 
     async ShellSort() {},
-    async CocktailShaker() {
 
+    async CocktailShaker() {
       var a = JSON.parse(JSON.stringify(this.numbers));
       // var a = this.numbers;
 
@@ -251,7 +171,10 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
+
+// Some css for the bar graph
+
 <style scoped>
 #staplar {
   display: flex;
@@ -271,5 +194,12 @@ button {
   max-width: 10rem;
   margin: 1rem;
   align-self: center;
+  background-color: #222;
+  border-style: none;
+  color: white;
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-radius: 2rem;
 }
+
 </style>

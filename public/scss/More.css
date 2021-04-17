@@ -1,0 +1,38 @@
+body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main table {
+  width: 50vw;
+  border-spacing: 1px;
+  background-color: #222;
+}
+
+body main table #topChart {
+  background-color: #222;
+  color: white;
+  padding: 2px;
+}
+
+body main table #topChart th {
+  padding: 1rem 1rem;
+}
+
+body main table tr {
+  background-color: white;
+}
+
+body main table tr th {
+  padding: 0.5rem 1rem;
+}
+/*# sourceMappingURL=More.css.map */

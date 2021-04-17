@@ -1,0 +1,35 @@
+body {
+    
+    main {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+
+
+        table {
+            width: 50vw;
+            border-spacing: 1px;
+            background-color: #222;
+            
+            #topChart {
+
+                background-color: #222;
+                color: white;
+                padding: 2px;
+                th {
+                    padding: 1rem 1rem;
+                }
+            }
+
+            tr {
+                background-color: white;
+                th {
+                    padding: 0.5rem 1rem;
+                }
+            }
+
+            
+        }
+    }
+}
