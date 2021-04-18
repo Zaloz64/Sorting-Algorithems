@@ -181,6 +181,10 @@ class Algorithems {
         return animations;
     }
 
+    static createColors(template) {
+        console.log(template)
+    }
+
 
 
 }

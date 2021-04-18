@@ -1,0 +1,1 @@
+<template>while not Sorted(list) do shuffle (list) done</template>

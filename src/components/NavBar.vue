@@ -52,8 +52,6 @@ export default {
         this.$parent.$refs.myChild.BubbleSort();
       } else if (this.selected == "Insertion Sort") {
         this.$parent.$refs.myChild.InsertionSort();
-        this.$parent.$refs.code.chosen(this.selected);
-
       } else if (this.selected == "Merge Sort") {
         this.$parent.$refs.myChild.MergeSort();
       } else if (this.selected == "Quick Sort") {

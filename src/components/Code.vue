@@ -3,26 +3,25 @@
     <button @click="exit()">X</button>
     <h2>CODE</h2>
     <h3>You have not chosen an sorting algorithem!</h3>
+      <SelectionSortPseudo />
   </section>
 </template>
 
 <script>
+import SelectionSortPseudo from "./PseudoCode/SelectionSortPseudo.vue";
 export default {
   name: "Code",
+  components: { SelectionSortPseudo },
   methods: {
     exit() {
       this.$parent.codeDisplay = false;
     },
-    chosen(name) {
-      console.log(name)
-    }
-
   }
 };
 </script>
 
 
-<style scoped>
+<style>
 button {
   width: 1.5rem;
   height: 1.5rem;
@@ -52,6 +51,7 @@ h2 {
   color: white;
   letter-spacing: 0.5rem;
 }
+
 </style>
 
 
