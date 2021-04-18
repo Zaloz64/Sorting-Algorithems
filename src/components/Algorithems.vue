@@ -7,7 +7,7 @@
         class="stapel"
         v-for="(val, index) in numbers"
         v-bind:key="index"
-        :style="{ height: val * 2 + 'px' }"
+        :style="{ height: val + 'px' }"
       ></div>
     </transition-group>
   </div>
