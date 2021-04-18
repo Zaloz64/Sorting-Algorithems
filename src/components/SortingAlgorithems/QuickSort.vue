@@ -14,8 +14,8 @@ export default {
           const [barOneIdx, barTwoIdx] = animations[i];
           const barOneStyle = arrayBars[barOneIdx].style;
           const barTwoStyle = arrayBars[barTwoIdx].style;
-          barOneStyle.backgroundColor = "green";
-          barTwoStyle.backgroundColor = "green";
+          barOneStyle.backgroundColor = "#49F2C2";
+          barTwoStyle.backgroundColor = "#49F2C2";
           await Algorithems.timeout(animationspeed);
           barOneStyle.backgroundColor = "gray";
           barTwoStyle.backgroundColor = "gray";
@@ -25,8 +25,8 @@ export default {
           if (newHeight < newHeight2) {
             const barOneStyle = arrayBars[barOneIdx].style;
             const barTwoStyle = arrayBars[barTwoIdx].style;
-            barOneStyle.backgroundColor = "blue";
-            barTwoStyle.backgroundColor = "blue";
+            barOneStyle.backgroundColor = "#0A3640";
+            barTwoStyle.backgroundColor = "#0A3640";
             await Algorithems.timeout(animationspeed);
             barOneStyle.backgroundColor = "gray";
             barTwoStyle.backgroundColor = "gray";
@@ -38,7 +38,7 @@ export default {
       }
       const arrayBars = document.getElementsByClassName("stapel");
       for (let i = 0; i < arrayBars.length; i++) {
-        arrayBars[i].style.backgroundColor = "orange";
+        arrayBars[i].style.backgroundColor = "#308C7B";
       }
     },
     partition(items, left, right, animations) {

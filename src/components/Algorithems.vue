@@ -67,6 +67,8 @@ export default {
       amount: 10,
       animationspeed: 0.5,
       numbers: [],
+      worstcase: false,
+      bestcase: false,
     };
   },
   created() {

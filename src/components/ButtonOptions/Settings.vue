@@ -24,6 +24,14 @@
         id="myRange"
       />
     </div>
+    <div class="checkBox">
+      <p>Best Case</p>
+      <input type="checkbox" v-on:click="$parent.$refs.myChild.bestcase = !$parent.$refs.myChild.bestcase" />
+    </div>
+    <div class="checkBox">
+      <p>Worst Case</p>
+      <input type="checkbox" v-on:click="$parent.$refs.myChild.worstcase = !$parent.$refs.myChild.worstcase" />
+    </div>
   </section>
 </template>
 

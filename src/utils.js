@@ -5,7 +5,7 @@ class Algorithems {
     static createArray(amount) {
         var numbers = [];
         for (let i = 0; i < amount; i++) {
-            numbers.push(i+20);
+            numbers.push(i+100);
         }
         this.shuffle(numbers);
         return numbers

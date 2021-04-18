@@ -16,7 +16,7 @@ export default {
         sorted = true;
         for (let i = 0; i < array.length; i++) {
           if (numbers[i] == array[i]) {
-            arrayBars[i].style.backgroundColor = "orange";
+            arrayBars[i].style.backgroundColor = "#308C7B";
           }
           else { sorted = false }
         }

@@ -15,20 +15,20 @@ export default {
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
 
-        barOneStyle.backgroundColor = 'green';
-        barTwoStyle.backgroundColor = 'green';
+        barOneStyle.backgroundColor = '#0A3640';
+        barTwoStyle.backgroundColor = '#0A3640';
         await Algorithems.timeout(animationspeed);
         barOneStyle.backgroundColor = 'gray';
         barTwoStyle.backgroundColor = 'gray';
         Algorithems.swap(numbers, barOneIdx, barTwoIdx)
         if (barTwoIdx == lastUnsorted) {
           for (let i = lastUnsorted; i < numbers.length; i++) {
-            arrayBars[i].style.backgroundColor = 'orange';
+            arrayBars[i].style.backgroundColor = '#308C7B';
           }
           lastUnsorted --;
         }
         for (let i = lastUnsorted; i < numbers.length; i++) {
-            arrayBars[i].style.backgroundColor = 'orange';
+            arrayBars[i].style.backgroundColor = '#308C7B';
           }
       }
     },

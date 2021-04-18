@@ -15,7 +15,7 @@ export default {
           const [barOneIdx, barTwoIdx] = animations[i];
           const barOneStyle = arrayBars[barOneIdx].style;
           const barTwoStyle = arrayBars[barTwoIdx].style;
-          const color = i % 3 === 0 ? "green" : "gray";
+          const color = i % 3 === 0 ? "#0A3640" : "gray";
           await Algorithems.timeout(animationspeed);
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
@@ -29,7 +29,7 @@ export default {
 
       const arrayBars = document.getElementsByClassName("stapel");
       for (let i = 0; i < arrayBars.length; i++) {
-        arrayBars[i].style.backgroundColor = "orange";
+        arrayBars[i].style.backgroundColor = "#308C7B";
       }
     },
     getMergeSortAnimations(array) {
