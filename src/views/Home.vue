@@ -13,6 +13,7 @@
 
       <div id="animationContainer">
           <img src="@/assets/frontpage.jpg" alt="">
+          
       </div>
     </section>
 
@@ -36,7 +37,7 @@ export default {
         max-width: 100%;
         object-fit: cover;
     }
-
+    
 </style>
 
 
