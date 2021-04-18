@@ -14,7 +14,7 @@ body #more {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  margin-top: 4rem;
 }
 
 body #more h3 {

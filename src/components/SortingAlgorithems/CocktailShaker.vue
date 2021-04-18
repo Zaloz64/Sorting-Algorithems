@@ -45,6 +45,8 @@ export default {
         arrayBars[start].style.backgroundColor = "orange";
         ++start;
       }
+      const arrayBars = document.getElementsByClassName("stapel");
+      arrayBars[start].style.backgroundColor = "orange";
     },
   },
 };

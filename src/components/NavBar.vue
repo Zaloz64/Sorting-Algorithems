@@ -20,7 +20,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -29,15 +28,13 @@ export default {
         "Bogo Sort",
         "Selection Sort",
         "Bubble Sort",
+        "Cocktail Shaker",
         "Insertion Sort",
         "Merge Sort",
         "Quick Sort",
         "Heap Sort",
-        "Cocktail Shaker",
-        "Radix Sort",
-        "Shell Sort",
       ],
-      uniqe: [  "Bitonic Sort"],
+      uniqe: ["Radix Sort", "Shell Sort", "Bitonic Sort"],
       selected: "",
     };
   },

@@ -67,9 +67,6 @@ export default {
       amount: 10,
       animationspeed: 0.5,
       numbers: [],
-      isPlaying: false,
-      worstcase: false,
-      bestcase: false,
     };
   },
   created() {
@@ -147,56 +144,11 @@ export default {
     },
 
     RadixSort() {
-      // this.$refs.RadixSort.startAnimation(this.numbers, this.animationspeed);
-      // this.numbers = this.radixSort(this.numbers)
+      this.$refs.RadixSort.startAnimation(this.numbers, this.animationspeed);
     },
-    // getMax(arr) {
-    //   let max = 0;
-    //   for (let num of arr) {
-    //     if (max < num.toString().length) {
-    //       max = num.toString().length;
-    //     }
-    //   }
-    //   return max;
-    // },
-    // getPosition(num, place) {
-    //   return Math.floor(Math.abs(num) / Math.pow(10, place)) % 10;
-    // },
-    // radixSort(arr) {
-    //   const max = this.getMax(arr); 
-
-    //   for (let i = 0; i < max; i++) {
-    //     let buckets = Array.from({ length: 10 }, () => []);
-    //     for (let j = 0; j < arr.length; j++) {
-    //       buckets[this.getPosition(arr[j], i)].push(arr[j]); 
-    //     }
-    //     console.log(buckets)
-    //     arr = [].concat(...buckets);
-    //   }
-    //   return arr;
-    // },
-
+   
     ShellSort() {
-      // this.$refs.ShellSort.startAnimation(this.numbers, this.animationspeed);
-      this.shell(this.numbers);
-    },
-
-    shell(numbers) {
-      var n = numbers.length;
-      for (let gap = n / 2; gap > 0; gap /= 2) {
-        // const arrayBars = document.getElementsByClassName("stapel");
-
-        for (let i = gap; i < n; i += 1) {
-          var temp = numbers[i];
-            // arrayBars[i].style.backgroundColors = 'green';
-          var j;
-          for (j = i; j >= gap && numbers[j - gap] > temp; j -= gap) {
-            numbers[j] = numbers[j - gap];
-          }
-          numbers[j] = temp;
-        }
-      }
-      return numbers;
+      this.$refs.ShellSort.startAnimation(this.numbers, this.animationspeed);
     },
 
     CocktailShaker() {

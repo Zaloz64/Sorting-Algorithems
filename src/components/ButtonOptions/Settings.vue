@@ -1,6 +1,6 @@
 <template>
   <section>
-    <button @click="yes()">X</button>
+    <button @click="exit()">X</button>
     <h2>SETTINGS</h2>
     <div class="slidecontainer">
       <p>Antal Staplar: {{ $parent.amountStaplar }}</p>
@@ -18,19 +18,11 @@
         v-model="$parent.sortingSpeed"
         v-on:change="$parent.$refs.myChild.animationspeedUpdate()"
         type="range"
-        min="00.1"
+        min="0.01"
         max="2000"
         class="slider"
         id="myRange"
       />
-    </div>
-    <div class="checkBox">
-      <p>Best Case</p>
-      <input type="checkbox"  />
-    </div>
-    <div class="checkBox"  v-on:click="$parent.$refs.myChild.bestcase = !$parent.$refs.myChild.bestcase">
-      <p>Worst Case</p>
-      <input type="checkbox" v-on:click="$parent.$refs.myChild.worstcase = !$parent.$refs.myChild.worstcase" />
     </div>
   </section>
 </template>
@@ -39,13 +31,8 @@
 <script>
 export default {
   name: "Settings",
-  data() {
-    return {
-      speed: "",
-    };
-  },
   methods: {
-    yes() {
+    exit() {
       this.$parent.settingdisplay = false;
     },
   },

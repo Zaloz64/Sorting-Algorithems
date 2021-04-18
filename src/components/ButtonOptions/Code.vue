@@ -9,25 +9,28 @@
     <Insertion-sort v-else-if="selected == 'Insertion Sort'" />
     <Merge-sort v-else-if="selected == 'Merge Sort'" />
     <Quick-sort v-else-if="selected == 'Quick Sort'" />
+    <Cocktail-shaker v-else-if="selected == 'Cocktail Shaker'"/>
+    <Heap-sort v-else-if="selected == 'Heap Sort'"/>
   </section>
 </template>
 
 <script>
-import SelectionSortPseudo from "./PseudoCode/SelectionSortPseudo.vue";
-import BogoSort from './PseudoCode/BogoSortPseudo.vue';
-import InsertionSort from './PseudoCode/InsertionSortPseudo.vue';
-import MergeSort from './PseudoCode/MergeSortPseudo.vue';
-import QuickSort from './PseudoCode/QuickSortPseudo.vue';
-import BubbleSort from './PseudoCode/BubbleSortPseudo.vue';
+import SelectionSortPseudo from "../PseudoCode/SelectionSortPseudo.vue";
+import BogoSort from '../PseudoCode/BogoSortPseudo.vue';
+import InsertionSort from '../PseudoCode/InsertionSortPseudo.vue';
+import MergeSort from '../PseudoCode/MergeSortPseudo.vue';
+import QuickSort from '../PseudoCode/QuickSortPseudo.vue';
+import BubbleSort from '../PseudoCode/BubbleSortPseudo.vue';
+import CocktailShaker from '../PseudoCode/CocktailShakerPseudo.vue';
+import HeapSort from '../PseudoCode/HeapSortPseudo.vue';
 
 
 export default {
   name: "Code",
-  components: { SelectionSortPseudo, BogoSort, InsertionSort, MergeSort ,QuickSort, BubbleSort},
+  components: { SelectionSortPseudo, BogoSort, InsertionSort, MergeSort ,QuickSort, BubbleSort, CocktailShaker, HeapSort},
   data() {
     return {
       selected: '',
-      // selected: this.$parent.$refs.NavBar.selected,
     }
   },
   methods: {

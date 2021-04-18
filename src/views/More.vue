@@ -34,9 +34,15 @@ export default {
     return {
       complexities: [
         {
-          Algorithem: "Quick Sort",
-          Best: "Ω(n log(n))",
-          Avrage: "Θ(n log(n))",
+          Algorithem: "Bogo Sort",
+          Best: "Ω(1)",
+          Avrage: "Θ((n+1)!)",
+          Worst: "O((n+1)!)",
+        },
+        {
+          Algorithem: "Selection Sort",
+          Best: "Ω(n^2)",
+          Avrage: "Θ(n^2)",
           Worst: "O(n^2)",
         },
         {
@@ -46,21 +52,33 @@ export default {
           Worst: "O(n^2)",
         },
         {
-          Algorithem: "Merge  Sort",
-          Best: "Ω(n log(n))",
-          Avrage: "Θ(n log(n))",
-          Worst: "O(n log(n))",
+          Algorithem: "Cocktail Sort",
+          Best: "Ω(n)",
+          Avrage: "Θ(n^2)",
+          Worst: "O(n^2)",
         },
         {
+          Algorithem: "Quick Sort",
+          Best: "Ω(n log(n))",
+          Avrage: "Θ(n log(n))",
+          Worst: "O(n^2)",
+        },
+         {
           Algorithem: "Insertion Sort",
           Best: "Ω(n)",
           Avrage: "Θ(n^2)",
           Worst: "O(n^2)",
         },
         {
-          Algorithem: "Selection Sort",
-          Best: "Ω(n^2)",
-          Avrage: "Θ(n^2)",
+          Algorithem: "Merge Sort",
+          Best: "Ω(n log(n))",
+          Avrage: "Θ(n log(n))",
+          Worst: "O(n log(n))",
+        },
+        {
+          Algorithem: "Quick Sort",
+          Best: "Ω(n log(n))",
+          Avrage: "Θ(n log(n))",
           Worst: "O(n^2)",
         },
         {
@@ -68,18 +86,6 @@ export default {
           Best: "Ω(n log(n))",
           Avrage: "Θ(n log(n))",
           Worst: "O(n log(n))",
-        },
-        {
-          Algorithem: "Radix Sort",
-          Best: "Ω(nk)",
-          Avrage: "Θ(nk)",
-          Worst: "O(nk)",
-        },
-        {
-          Algorithem: "Bucket Sort",
-          Best: "Ω(n+k)",
-          Avrage: "Θ(n+k)",
-          Worst: "O(n^2)",
         },
       ],
     };

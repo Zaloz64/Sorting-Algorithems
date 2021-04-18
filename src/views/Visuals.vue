@@ -5,7 +5,7 @@
       <h2 v-if="isShowing">
         Choose a sortingalgorithem you would like to see!
       </h2>
-      <HelloWorld ref="myChild" v-else />
+      <Algorithems ref="myChild" v-else />
       <div id="moreInfo">
         <Settings v-show="settingdisplay"/>
         <Code ref="code" v-show="codeDisplay"/>
@@ -31,15 +31,15 @@
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import Algorithems from "@/components/Algorithems.vue";
 import NavBar from "../components/NavBar.vue";
-import Settings from '../components/Settings.vue';
-import Code from '../components/Code.vue';
+import Settings from '../components/ButtonOptions/Settings.vue';
+import Code from '../components/ButtonOptions/Code.vue';
 import Info from '../components/ButtonOptions/info.vue';
 
 export default {
   components: {
-    HelloWorld,
+    Algorithems,
     NavBar,
     Settings,
     Code,
