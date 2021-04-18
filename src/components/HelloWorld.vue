@@ -7,11 +7,12 @@
         class="stapel"
         v-for="(val, index) in numbers"
         v-bind:key="index"
-        :style="{ height: val + 'px' }"
+        :style="{ height: val * 2 + 'px' }"
       ></div>
     </transition-group>
   </div>
-  <button id="newArray"
+  <button
+    id="newArray"
     @click="
       createArray();
       staplatUpdate();
@@ -26,9 +27,11 @@
   <Insertion-sort ref="InsertionSort" />
   <Merge-sort ref="MergeSort" />
   <Quick-sort ref="QuickSort" />
-  <Bogo-sort ref="BogoSort"/>
+  <Bogo-sort ref="BogoSort" />
   <Heap-sort ref="HeapSort" />
   <Cocktail-shaker ref="CocktailShaker" />
+  <Radix-sort ref="RadixSort" />
+  <Shell-sort ref="ShellSort" />
 </template>
 
 
@@ -40,9 +43,10 @@ import InsertionSort from "./SortingAlgorithems/InsertionSort.vue";
 import MergeSort from "./SortingAlgorithems/MergeSort.vue";
 import QuickSort from "./SortingAlgorithems/QuickSort.vue";
 import BogoSort from "./SortingAlgorithems/BogoSort.vue";
-import HeapSort from './SortingAlgorithems/HeapSort.vue';
-import CocktailShaker from './SortingAlgorithems/CocktailShaker.vue';
-
+import HeapSort from "./SortingAlgorithems/HeapSort.vue";
+import CocktailShaker from "./SortingAlgorithems/CocktailShaker.vue";
+import RadixSort from "./SortingAlgorithems/RadixSort.vue";
+import ShellSort from "./SortingAlgorithems/ShellSort.vue";
 
 export default {
   components: {
@@ -54,6 +58,8 @@ export default {
     BogoSort,
     HeapSort,
     CocktailShaker,
+    RadixSort,
+    ShellSort,
   },
   name: "HelloWorld",
   data() {
@@ -62,14 +68,14 @@ export default {
       animationspeed: 0.5,
       numbers: [],
       isPlaying: false,
-      worstcase:false,
-      bestcase:false,
+      worstcase: false,
+      bestcase: false,
     };
   },
   created() {
     this.createArray();
   },
- 
+
   methods: {
     staplatUpdate() {
       this.amount = this.$parent.amountStaplar;
@@ -84,15 +90,19 @@ export default {
       this.staplatUpdate();
       var temp = Algorithems.createArray(this.amount);
       this.numbers = temp;
-      
-      if (this.worstcase) {
-          this.numbers.sort(function (a, b) { return a > b ? 1 : -1; });
-          this.numbers.reverse();
-      } else if (this.bestcase) {
-        this.numbers.sort(function (a, b) { return a > b ? 1 : -1; });
+
+      if (this.bestcase) {
+        this.numbers.sort(function (a, b) {
+          return a > b ? 1 : -1;
+        });
       }
 
-    
+      if (this.worstcase) {
+        this.numbers.sort(function (a, b) {
+          return a > b ? 1 : -1;
+        });
+        this.numbers.reverse();
+      }
 
       const arrayBars = document.getElementsByClassName("stapel");
       for (let i = 0; i < arrayBars.length; i++) {
@@ -136,12 +146,64 @@ export default {
       this.$refs.HeapSort.startAnimation(this.numbers, this.animationspeed);
     },
 
-    async RadixSort() {},
+    RadixSort() {
+      // this.$refs.RadixSort.startAnimation(this.numbers, this.animationspeed);
+      // this.numbers = this.radixSort(this.numbers)
+    },
+    // getMax(arr) {
+    //   let max = 0;
+    //   for (let num of arr) {
+    //     if (max < num.toString().length) {
+    //       max = num.toString().length;
+    //     }
+    //   }
+    //   return max;
+    // },
+    // getPosition(num, place) {
+    //   return Math.floor(Math.abs(num) / Math.pow(10, place)) % 10;
+    // },
+    // radixSort(arr) {
+    //   const max = this.getMax(arr); 
 
-    async ShellSort() {},
+    //   for (let i = 0; i < max; i++) {
+    //     let buckets = Array.from({ length: 10 }, () => []);
+    //     for (let j = 0; j < arr.length; j++) {
+    //       buckets[this.getPosition(arr[j], i)].push(arr[j]); 
+    //     }
+    //     console.log(buckets)
+    //     arr = [].concat(...buckets);
+    //   }
+    //   return arr;
+    // },
 
-    async CocktailShaker() {
-      this.$refs.CocktailShaker.startAnimation(this.numbers, this.animationspeed);
+    ShellSort() {
+      // this.$refs.ShellSort.startAnimation(this.numbers, this.animationspeed);
+      this.shell(this.numbers);
+    },
+
+    shell(numbers) {
+      var n = numbers.length;
+      for (let gap = n / 2; gap > 0; gap /= 2) {
+        // const arrayBars = document.getElementsByClassName("stapel");
+
+        for (let i = gap; i < n; i += 1) {
+          var temp = numbers[i];
+            // arrayBars[i].style.backgroundColors = 'green';
+          var j;
+          for (j = i; j >= gap && numbers[j - gap] > temp; j -= gap) {
+            numbers[j] = numbers[j - gap];
+          }
+          numbers[j] = temp;
+        }
+      }
+      return numbers;
+    },
+
+    CocktailShaker() {
+      this.$refs.CocktailShaker.startAnimation(
+        this.numbers,
+        this.animationspeed
+      );
     },
 
     async BitonicSort() {},
@@ -162,7 +224,7 @@ export default {
 }
 
 .stapel {
-  margin-left: 5px;
+  margin-left: 1px;
   width: 5px;
   background-color: gray;
   align-self: flex-end;
@@ -179,5 +241,4 @@ button {
   font-size: 0.9rem;
   border-radius: 2rem;
 }
-
 </style>

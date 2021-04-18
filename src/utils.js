@@ -5,9 +5,10 @@ class Algorithems {
     static createArray(amount) {
         var numbers = [];
         for (let i = 0; i < amount; i++) {
-            numbers.push((Math.floor(Math.random() * 101) + 10) * 2);
+            numbers.push(i+20);
         }
-        return numbers;
+        this.shuffle(numbers);
+        return numbers
     }
 
     static timeout(ms) {

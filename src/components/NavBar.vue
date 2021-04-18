@@ -34,8 +34,10 @@ export default {
         "Quick Sort",
         "Heap Sort",
         "Cocktail Shaker",
+        "Radix Sort",
+        "Shell Sort",
       ],
-      uniqe: ["Radix Sort", "Shell Sort", "Cocktail Shaker", "Bitonic Sort"],
+      uniqe: [  "Bitonic Sort"],
       selected: "",
     };
   },
@@ -45,7 +47,7 @@ export default {
       this.$parent.isShowing = false;
       this.selected = name;
       this.$parent.$refs.code.selected = name;
-      this.$parent.$refs.myChild.createArray();
+      // this.$parent.$refs.myChild.createArray();
     },
     showAlgotithem() {
       if (this.selected == "Selection Sort") {
@@ -64,6 +66,10 @@ export default {
         this.$parent.$refs.myChild.HeapSort();
       } else if (this.selected == "Cocktail Shaker") {
         this.$parent.$refs.myChild.CocktailShaker();
+      } else if (this.selected == "Radix Sort") {
+        this.$parent.$refs.myChild.RadixSort();
+      } else if (this.selected == "Shell Sort") {
+        this.$parent.$refs.myChild.ShellSort();
       }
     },
   },

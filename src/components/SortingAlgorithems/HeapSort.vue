@@ -6,7 +6,7 @@ import Algorithems from '../../utils';
 export default {
   methods: {
     async startAnimation(numbers, animationspeed) {
-
+      var lastUnsorted = numbers.length-1;
       const array = JSON.parse(JSON.stringify(numbers));
       const animations = this.getHeapSortAnimation(array);
        for (let i = 0; i < animations.length; i++) {
@@ -21,6 +21,15 @@ export default {
         barOneStyle.backgroundColor = 'gray';
         barTwoStyle.backgroundColor = 'gray';
         Algorithems.swap(numbers, barOneIdx, barTwoIdx)
+        if (barTwoIdx == lastUnsorted) {
+          for (let i = lastUnsorted; i < numbers.length; i++) {
+            arrayBars[i].style.backgroundColor = 'orange';
+          }
+          lastUnsorted --;
+        }
+        for (let i = lastUnsorted; i < numbers.length; i++) {
+            arrayBars[i].style.backgroundColor = 'orange';
+          }
       }
     },
 

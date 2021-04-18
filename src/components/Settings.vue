@@ -26,11 +26,11 @@
     </div>
     <div class="checkBox">
       <p>Best Case</p>
-      <input type="checkbox" name="Bestcase" id="" />
+      <input type="checkbox"  />
     </div>
-    <div class="checkBox">
+    <div class="checkBox"  v-on:click="$parent.$refs.myChild.bestcase = !$parent.$refs.myChild.bestcase">
       <p>Worst Case</p>
-      <input type="checkbox" name="Bestcase" id="" />
+      <input type="checkbox" v-on:click="$parent.$refs.myChild.worstcase = !$parent.$refs.myChild.worstcase" />
     </div>
   </section>
 </template>
