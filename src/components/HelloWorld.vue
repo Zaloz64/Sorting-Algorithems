@@ -55,6 +55,7 @@ export default {
       amount: 10,
       animationspeed: 0.5,
       numbers: [],
+      isPlaying: false,
     };
   },
   created() {
@@ -72,7 +73,12 @@ export default {
       this.animationspeed = this.$parent.sortingSpeed;
     },
 
+    animationspeedUpdate() {
+      this.animationspeed = this.$parent.sortingSpeed;
+    },
+
     createArray() {
+      this.staplatUpdate();
       var temp = Algorithems.createArray(this.amount);
       this.numbers = temp;
 

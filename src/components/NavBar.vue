@@ -43,6 +43,7 @@ export default {
     selectedAlgotithem(name) {
       this.$parent.isShowing = false;
       this.selected = name;
+      this.$parent.$refs.code.selected = name;
       this.$parent.$refs.myChild.createArray();
     },
     showAlgotithem() {

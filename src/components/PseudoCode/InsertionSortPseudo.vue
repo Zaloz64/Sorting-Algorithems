@@ -1,5 +1,16 @@
 <template>
-  mark first element as sorted for each unsorted element X 'extract' the element
-  X for j = lastSortedIndex down to 0 if current element j > X move sorted
-  element to the right by 1 break loop and insert X here
+  <code>
+    i ← 1
+    while i &lt; length(A) <br>
+    &nbsp; x ← A[i] <br>
+    &nbsp; j ← i - 1 <br>
+    &nbsp; while j >= 0 and A[j] > x <br>
+    &nbsp; &nbsp; A[j+1] ← A[j] <br>
+    &nbsp; &nbsp; j ← j - 1 <br>
+    &nbsp; end while <br>
+    &nbsp; A[j+1] ← x[3] <br>
+    &nbsp; i ← i + 1 <br>
+  end while <br>
+  </code>
+
 </template>

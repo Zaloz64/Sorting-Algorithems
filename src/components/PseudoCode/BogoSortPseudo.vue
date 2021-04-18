@@ -1,1 +1,7 @@
-<template>while not Sorted(list) do shuffle (list) done</template>
+<template>
+    <code>
+        while not Sorted(list) do <br>
+        &nbsp; shuffle (list) <br>
+        done <br>
+    </code>
+</template>

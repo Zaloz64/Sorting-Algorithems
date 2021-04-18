@@ -8,12 +8,10 @@
       <HelloWorld ref="myChild" v-else />
       <div id="moreInfo">
         <Settings v-show="settingdisplay"/>
-        <Code v-show="codeDisplay"/>
+        <Code ref="code" v-show="codeDisplay"/>
         <Info v-show="infoDisplay"/>
       </div>
     </div>
-
-
 
     <div class="controlls">
       <button>
@@ -23,7 +21,7 @@
           @click="this.$refs.NavBar.showAlgotithem()"
         />
       </button>
-      <button ref="code" @click="closeSettings(); selectedAlgotithem(); codeDisplay = !codeDisplay">&lt;&gt;</button>
+      <button @click="closeSettings(); selectedAlgotithem(); codeDisplay = !codeDisplay">&lt;&gt;</button>
       <button @click="closeSettings(); settingdisplay = !settingdisplay">
         <img src="img/setting-line.png" alt="Setting" />
       </button>

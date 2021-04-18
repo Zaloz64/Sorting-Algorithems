@@ -6,6 +6,7 @@
       <p>Antal Staplar: {{$parent.amountStaplar}}</p>
       <input
         v-model="$parent.amountStaplar"
+        v-on:change="$parent.$refs.myChild.createArray();"
         type="range"
         min="2"
         max="200"
@@ -15,6 +16,7 @@
       <p>Hastighet: {{$parent.sortingSpeed}}</p>
       <input
         v-model="$parent.sortingSpeed"
+        v-on:change="$parent.$refs.myChild.animationspeedUpdate();"
         type="range"
         min="00.1"
         max="2000"
@@ -33,7 +35,6 @@ export default {
   data() {
     return {
       speed: "",
-
     }
   },
   methods: {

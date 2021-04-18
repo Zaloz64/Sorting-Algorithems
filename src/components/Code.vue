@@ -2,16 +2,34 @@
   <section>
     <button @click="exit()">X</button>
     <h2>CODE</h2>
-    <h3>You have not chosen an sorting algorithem!</h3>
-      <SelectionSortPseudo />
+    <h3 v-if="selected == ''">You have not chosen an sorting algorithem!</h3>
+    <SelectionSortPseudo v-else-if="selected == 'Selection Sort'" />
+    <Bubble-sort v-else-if="selected == 'Bubble Sort'" />
+    <Bogo-sort v-else-if="selected == 'Bogo Sort'" />
+    <Insertion-sort v-else-if="selected == 'Insertion Sort'" />
+    <Merge-sort v-else-if="selected == 'Merge Sort'" />
+    <Quick-sort v-else-if="selected == 'Quick Sort'" />
   </section>
 </template>
 
 <script>
 import SelectionSortPseudo from "./PseudoCode/SelectionSortPseudo.vue";
+import BogoSort from './PseudoCode/BogoSortPseudo.vue';
+import InsertionSort from './PseudoCode/InsertionSortPseudo.vue';
+import MergeSort from './PseudoCode/MergeSortPseudo.vue';
+import QuickSort from './PseudoCode/QuickSortPseudo.vue';
+import BubbleSort from './PseudoCode/BubbleSortPseudo.vue';
+
+
 export default {
   name: "Code",
-  components: { SelectionSortPseudo },
+  components: { SelectionSortPseudo, BogoSort, InsertionSort, MergeSort ,QuickSort, BubbleSort},
+  data() {
+    return {
+      selected: '',
+      // selected: this.$parent.$refs.NavBar.selected,
+    }
+  },
   methods: {
     exit() {
       this.$parent.codeDisplay = false;
@@ -21,7 +39,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 button {
   width: 1.5rem;
   height: 1.5rem;
