@@ -27,6 +27,8 @@
   <Merge-sort ref="MergeSort" />
   <Quick-sort ref="QuickSort" />
   <Bogo-sort ref="BogoSort"/>
+  <Heap-sort ref="HeapSort" />
+  <Cocktail-shaker ref="CocktailShaker" />
 </template>
 
 
@@ -38,6 +40,8 @@ import InsertionSort from "./SortingAlgorithems/InsertionSort.vue";
 import MergeSort from "./SortingAlgorithems/MergeSort.vue";
 import QuickSort from "./SortingAlgorithems/QuickSort.vue";
 import BogoSort from "./SortingAlgorithems/BogoSort.vue";
+import HeapSort from './SortingAlgorithems/HeapSort.vue';
+import CocktailShaker from './SortingAlgorithems/CocktailShaker.vue';
 
 
 export default {
@@ -48,6 +52,8 @@ export default {
     MergeSort,
     QuickSort,
     BogoSort,
+    HeapSort,
+    CocktailShaker,
   },
   name: "HelloWorld",
   data() {
@@ -56,17 +62,14 @@ export default {
       animationspeed: 0.5,
       numbers: [],
       isPlaying: false,
+      worstcase:false,
+      bestcase:false,
     };
   },
   created() {
     this.createArray();
   },
-  watch: {
-    amount: function () {
-      this.createArray();
-    },
-  },
-
+ 
   methods: {
     staplatUpdate() {
       this.amount = this.$parent.amountStaplar;
@@ -81,6 +84,15 @@ export default {
       this.staplatUpdate();
       var temp = Algorithems.createArray(this.amount);
       this.numbers = temp;
+      
+      if (this.worstcase) {
+          this.numbers.sort(function (a, b) { return a > b ? 1 : -1; });
+          this.numbers.reverse();
+      } else if (this.bestcase) {
+        this.numbers.sort(function (a, b) { return a > b ? 1 : -1; });
+      }
+
+    
 
       const arrayBars = document.getElementsByClassName("stapel");
       for (let i = 0; i < arrayBars.length; i++) {
@@ -120,17 +132,8 @@ export default {
       this.$refs.QuickSort.startAnimation(this.numbers, this.animationspeed);
     },
 
-    async HeapSort() {
-      // Needs to be done properly
-      var animations = Algorithems.getHeapSortAnimation(this.numbers);
-      console.log(animations);
-      for (let i = 0; i < animations.length; i++) {
-        const arrayBars = document.getElementsByClassName("stapel");
-        await Algorithems.timeout(this.animationspeed);
-        const [barOneIdx, newHeight] = animations[i];
-        const barOneStyle = arrayBars[barOneIdx].style;
-        barOneStyle.height = `${newHeight}px`;
-      }
+    HeapSort() {
+      this.$refs.HeapSort.startAnimation(this.numbers, this.animationspeed);
     },
 
     async RadixSort() {},
@@ -138,39 +141,7 @@ export default {
     async ShellSort() {},
 
     async CocktailShaker() {
-      var a = JSON.parse(JSON.stringify(this.numbers));
-      // var a = this.numbers;
-
-      var swapped = true;
-      var start = 0;
-      var end = a.length - 1;
-
-      while (swapped) {
-        // const arrayBars = document.getElementsByClassName("stapel");
-
-        swapped = false;
-        for (let i = start; i < end; ++i) {
-          if (a[i] > a[i + 1]) {
-            Algorithems.swap(a, i, i + 1);
-
-            swapped = true;
-          }
-        }
-        if (!swapped) break;
-
-        swapped = false;
-
-        --end;
-
-        for (let i = end - 1; i >= start; --i) {
-          if (a[i] > a[i + 1]) {
-            Algorithems.swap(a, i, i + 1);
-            swapped = true;
-          }
-        }
-
-        ++start;
-      }
+      this.$refs.CocktailShaker.startAnimation(this.numbers, this.animationspeed);
     },
 
     async BitonicSort() {},

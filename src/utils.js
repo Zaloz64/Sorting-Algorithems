@@ -26,4 +26,3 @@ class Algorithems {
 }
 export default Algorithems;
 
-// export default timeout;

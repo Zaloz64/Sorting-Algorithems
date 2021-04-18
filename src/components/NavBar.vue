@@ -33,6 +33,7 @@ export default {
         "Merge Sort",
         "Quick Sort",
         "Heap Sort",
+        "Cocktail Shaker",
       ],
       uniqe: ["Radix Sort", "Shell Sort", "Cocktail Shaker", "Bitonic Sort"],
       selected: "",
